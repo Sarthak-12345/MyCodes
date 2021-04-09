@@ -1,0 +1,579 @@
+/*1)Write a program to print the largest of three numbers.
+==============================================================
+package com.OOPS.core;
+
+
+public class Test{ 
+public static void main(String args[]) {    
+
+//int a=10,b=20,c=30;
+//if(a>b && a>c) {
+//	System.out.println("a is greater");
+//	
+//}
+//else if(b>a && b>c) {
+//	System.out.println("b is greater");
+//}
+//else {
+//	System.out.println("c is greater");
+//}
+
+//	second method
+//	=============
+int a=10,b=225,c=30;
+if(a>b){
+	if(a>c) {
+		System.out.println("a is greater");
+	}else 
+		System.out.println("c is greater");
+}else if(b>c) {
+		
+		System.out.println("b is greater");
+	
+}else {
+		System.out.println("c is greater");
+}
+
+}
+}*/ 
+
+user input method 
+==================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+
+Scanner scan= new Scanner(System.in);
+System.out.println("a value");
+int a = scan.nextInt();
+System.out.println("b vlaue");
+int b = scan.nextInt();
+System.out.println("c value");
+int c = scan.nextInt();
+if(a>b && a>c) {
+	System.out.println("a is greater");
+	
+}
+else if(b>a && b>c) {
+	System.out.println("b is greater");
+}
+else {
+	System.out.println("c is greater");
+}
+}
+}
+
+
+/*2)scanner program
+========================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+	Scanner scan = new Scanner(System.in);
+    
+	System.out.println("what is your name?");
+	String name = scan.next();
+	
+	System.out.println("what is your age?");
+	int age=scan.nextInt();
+	
+	System.out.println("what is your favourite qoute?");
+	String quote=scan.next();
+	quote += scan.nextLine();
+			
+	System.out.println("Thank You " +name+"! You are "+age+" years old");
+	System.out.println("and your senior quote is "+quote);
+}
+}*/
+
+/*3)even odd ?
+==================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+int n;
+System.out.println("enter any number");
+Scanner scan =new Scanner(System.in);
+n=scan.nextInt();
+
+if(n%2==0) {
+	System.out.println("Even Number");
+	
+}else {
+	System.out.println("odd Number");
+}
+
+}
+}*/
+
+/*4)prime number or not ?
+==========================
+ package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+	Scanner scan= new Scanner(System.in);
+	
+	System.out.println("enter any number");
+	int n=scan.nextInt();
+    int temp=0;
+
+
+for(int i=2;i<=n-1;i++) {
+	if(n % i==0) {
+	temp=temp+1;
+}}
+if(temp>0){
+	System.out.println(n+" is not PRIME");
+	
+	
+}else {
+	
+	System.out.println(n+" is Prime");
+}
+
+}
+}*/
+5)print the prime numbers upto 100.
+===========================================
+package com.OOPS.core;
+
+
+public class Test{ 
+public static void main(String args[]) {    
+int temp=0;
+for(int n=1;n<=100;n++) {
+	for(int i=2;i<=n-1;i++) {
+		if(n%i==0) {
+			temp=temp+1;
+		}
+			
+	}
+if(temp==0) {
+	System.out.println(n);
+}else {
+	temp=0;
+}
+	
+}
+}
+}
+
+6)Find the Sum of Digits of a number in java.
+====================================================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+int  rem=0;
+int  sum=0;
+Scanner scan= new Scanner(System.in);
+
+System.out.println("Please Enter the Number");
+int num=scan.nextInt();
+while(num>0){
+	rem=num%10;
+	sum= sum+rem;//if a number is abc initially sum =0 ; //then value will be sum=c then sum =c+b 
+                                    //and finally sum= c+b+a
+        
+
+       num = num/10; //    here we will get first ab then a because the remender is c previously we have got       
+	
+	
+	
+}
+System.out.println("Sum of number is " +sum);
+
+
+}
+}
+
+7)Sum of First n Natural Numbers 
+=====================================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+Scanner scan= new Scanner(System.in);
+System.out.println("write a number!");
+int num=scan.nextInt();
+
+int i, sum = 0;  
+//executes until the condition returns true  
+for(i = 1; i <= num; ++i)  
+{  
+//adding the value of i into sum variable  
+sum = sum + i;  
+}  
+//prints the sum   
+System.out.println("Sum of First "+ num +" Natural Numbers is = " + sum); 
+
+
+}
+}
+
+8)write a program to find the sum of 3 numbers?
+====================================================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+
+Scanner scan= new Scanner(System.in);
+ System.out.println("please enter a value");
+int a = scan.nextInt();
+System.out.println("please enter b value");
+int b = scan.nextInt();
+System.out.println("please enter c value");
+int c = scan.nextInt();
+int sum = a+b+c;
+System.out.println("the sum of a,b,c is "+ sum);
+
+
+}
+}
+
+9)perfect number or not?
+============================
+
+package com.OOPS.core;
+//perfect number logic 
+//if 6= 1,2,3(divisors) and here if 1+2+3=6 means 6 is a perfect number & 28 is perfect number 
+//(sum of divisor excluding the number itself if the number itself 
+//then that is called as perfect number)
+//import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+//int sum=0;
+//Scanner scan= new Scanner(System.in);
+//System.out.println("Enter a number ");
+// int num=scan.nextInt();
+//if(num>0) {
+//for (int i=1;i<=num/2;i++) {
+//	if (num%i==0) {
+//		sum=sum+i; //we can write it as sum += i
+//	}
+//}	
+//	if (sum==num) {
+//		
+//		System.out.println(num+" is a perfect number");
+//	}else {
+//		System.out.println(num+" is not a perfect number");
+//	}
+//	
+//}
+//}
+//}
+
+
+10)print perfect number between 1 to 100?
+===========================================
+public class Test{ 
+public static void main(String args[]) { 
+int sum;
+	for(int num = 1; num < 100; num++) {
+
+	    sum = 0;
+	
+	    for(int j = 1; j< num; j++) {
+	        if(num % j == 0) {
+	            sum += j; //it means sum=sum+j
+}
+}
+	
+	    if(sum == num) {
+	        System.out.println(sum);
+}    	
+}
+}
+}
+
+12)leap year or not?
+========================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+Scanner scan = new Scanner(System.in);
+System.out.println("Please Enter a Number!");
+int i=scan.nextInt();
+if(i%4==0) {
+	System.out.println(i+" is a leap year.");
+
+}	else {
+	System.out.println(i+" is not a leap year.");
+}
+		
+}
+	
+}
+13)print this:---
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+===================
+package com.OOPS.core;
+public class Test{ 
+public static void main(String args[]) {    
+for(int row=1;row<=5;row++) {
+	
+	for(int col=1;col<=row;col++) {
+		
+		System.out.print(col+" ");
+		
+		
+	}
+	System.out.println();
+}		
+}	
+}
+14)factorial of a number !
+==========================
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test{ 
+public static void main(String args[]) {    
+int fact =1;
+	Scanner scan = new Scanner(System.in); 
+	System.out.println("please enter a number!");
+	 int num =scan.nextInt();
+	for(int i=1;i<=num;i++) {
+		fact*=i;		
+}
+System.out.println("Factorial of the "+num+" is "+fact+".");
+}	
+}
+
+by recursion
+===============
+package com.OOPS.core;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		//5! = 5 * (4 * 3 * 2 * 1) = 120
+		System.out.println(factorial(25));
+	}
+	
+	public static int factorial(int n) {
+		if(n == 1) {
+			System.out.println("factorial(" + n + ") = 1");
+			return 1;
+		} else {
+			System.out.println("factorial(" + n + ") = " + n + " * factorial(" + (n - 1) + ")");
+			return n * factorial(n - 1);
+		}
+	}
+
+}
+
+15)print a^b
+=============
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test {
+
+public static void main(String[] args) {
+Scanner scan=new Scanner(System.in);
+System.out.println("please enter the base");
+int base = scan.nextInt();
+System.out.println("please enter the exponential value");
+int expo=scan.nextInt();
+int result=1;
+
+while(expo>0) {
+	
+	result=result*base;
+	expo--;
+	
+} 
+System.out.println("The value"+" is "+result);
+}
+
+}
+by mathematical fuction
+=========================
+package com.OOPS.core;
+
+import java.util.Scanner;
+import java.io.*;
+public class Test {
+
+    public static void main(String[] args) throws IOException {
+    Scanner sc=new Scanner(System.in);
+            
+       System.out.println("Enter X value :");
+       double x = sc.nextDouble();
+       System.out.println("Enter Y value :");
+       double y = sc.nextDouble();
+       double c = Math.pow(x, y);
+       System.out.println("Power :" + c);
+       sc.close();
+    }
+ 
+}
+by recursion
+===============
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test {
+
+public static void main(String[] args) {
+Scanner scan=new Scanner(System.in);
+System.out.println("enter the base");
+int base=scan.nextInt();
+System.out.println("enter the exponential");
+int expo=scan.nextInt();
+long result=powerNumber(base,expo);
+
+System.out.println("value is "+result);
+
+
+}
+
+private static long powerNumber(int base, int expo) {
+	if(expo==0) {
+		return 1;
+	}
+	long result=base*powerNumber(base,expo-1);
+	return result;
+}
+}
+by recursion
+=============
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test {
+
+public static void main(String[] args) {
+Scanner scan=new Scanner(System.in); 
+System.out.println("enter a value");
+int a =scan.nextInt();
+System.out.println("enter b value");
+int b=scan.nextInt();
+System.out.println(a+"^"+b+" = "+Power(a,b));
+	
+}
+
+public static int Power(int a,int b) {
+	if(b==0) {
+		return 1;
+	}
+	return a*Power(a,b-1);
+}
+
+}
+
+
+16) System.out.printf("%-15s%03d%n", s1, x);
+   ("%-15s%03d%n", s1, x) % : used as a formatter.
+   '-' : minus sign used for left indentation of the string. 
+   15s : here 15 denotes the string's minimum field width 15. 
+   '0' : pads the extra 0s in the integer. 
+   3d : here 3 denotes integer's minimum field width 3.
+   %n : prints the new line.
+
+
+package com.OOPS.core;
+
+import java.util.Scanner;
+
+public class Test {
+
+    public static void main(String[] args) {
+            Scanner sc=new Scanner(System.in);
+            
+            System.out.println("================================");
+            for(int i=0;i<3;i++)
+            {
+                String s1=sc.next();
+                int x=sc.nextInt();
+                 System.out.printf("%-15s%03d%n", s1, x);
+            }
+            System.out.println("================================");
+        
+    }
+ 
+}
+
+sample input
+-------------
+java 100
+cpp 65
+python 50
+
+sample o/p
+----------
+================================
+java           100 
+cpp            065 
+python         050 
+================================
+
+
+17)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
