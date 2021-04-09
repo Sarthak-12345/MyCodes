@@ -1,0 +1,354 @@
+1.To refer current class variables:
+=======================================
+package com.OOPS.core;
+
+class AB{
+int i=10;
+int j=20;
+AB(int i,int j) {
+System.out.println("Local Variables :"+i+","+j);
+System.out.println("Classlevel Variables :"+this.i+","+this.j);
+}//to access class level variables over local variables 
+  //we have to use 'this' keyword
+}
+class Test{
+public static void main(String args[]){
+AB a=new AB(30,40);
+}}
+ex1
+====
+package com.OOPS.core;
+
+class User{
+private String uname;
+private String upwd;
+public void setUname(String uname) {
+this.uname=uname;
+}
+public void setUpwd(String upwd) {
+this.upwd=upwd;
+}
+public String getUname() {
+return uname;
+}
+public String getUpwd(){
+return upwd;
+}
+}
+class Test{
+public static void main(String[] args){
+User u=new User();
+u.setUname("abc");
+u.setUpwd("abc123");
+System.out.println("User Login Details");
+System.out.println("----------------------");
+System.out.println("User Name :"+u.getUname());
+System.out.println("Password :"+u.getUpwd());
+}
+}
+ex2
+=====
+package prac;
+
+class Employee
+{
+private String eid;
+private String ename;
+private float esal;
+private String eaddr;
+public void setEid(String eid)
+{
+this.eid=eid;
+}
+public void setEname(String ename)
+{
+this.ename=ename;
+}
+public void setEsal(float esal)
+{
+this.esal=esal;
+}
+public void setEaddr(String eaddr)
+{
+this.eaddr=eaddr;
+}
+public String getEid()
+{
+return eid;
+}
+public String getEname()
+{
+return ename;
+}
+public float getEsal()
+{
+return esal;
+}
+public String getEaddr()
+{
+return eaddr;
+}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+	Employee emp=new Employee();
+	emp.setEid("E-111");
+	emp.setEname("AAA");
+	emp.setEsal(5000.0f);
+	emp.setEaddr("Hyd");
+	System.out.println("Employee Details");
+	System.out.println("---------------------");
+	System.out.println("Employee Id :"+emp.getEid());
+	System.out.println("Employee Name :"+emp.getEname());
+	System.out.println("Employee Salary :"+emp.getEsal());
+	System.out.println("Employee Address :"+emp.getEaddr());
+	}
+	}
+	
+2.To refer current class method:
+==================================	
+ex1
+====
+package prac;
+class A{
+void m1(){
+System.out.println("m1-A");
+}
+void m2(){
+System.out.println("m2-A");
+m1();
+this.m1();
+}//to refer current method we can use this keyword
+}
+class Test{
+public static void main(String args[]){
+A a=new A();
+a.m2();
+}
+}
+		
+3.To refer current class constructors:
+========================================	
+package prac;
+
+class A{
+A(){
+this(10);
+System.out.println("A-0-arg-con");
+}
+A(int i){
+this(22.22f);
+System.out.println("A-int-param-con");
+}
+A(float f){
+this(33.3333);
+System.out.println("A-float-param-con");
+}
+A(double d){
+System.out.println("A-double-param-con");
+}
+}
+class Test{
+public static void main(String args[]){
+A a=new A();
+}
+}
+	
+	
+ex2
+====	
+package prac;
+
+class A{
+A(){
+System.out.println("A-0-arg-con");
+this(10);
+}
+A(int i){
+System.out.println("A-int-param-con");
+this(22.22f);
+}
+A(float f){
+System.out.println("A-float-param-con");
+this(33.3333);
+}
+A(double d){
+System.out.println("A-double-param-con");
+}
+}
+class Test{
+public static void main(String args[]){
+A a=new A();
+}
+}	
+		
+error
+-------
+Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	Constructor call must be the first statement in a constructor
+	Constructor call must be the first statement in a constructor
+	Constructor call must be the first statement in a constructor
+
+	at prac.A.<init>(Test.java:6)
+	at prac.Test.main(Test.java:22)
+	
+	
+	
+ex3
+====	
+package prac;
+
+class A
+{
+A()
+{
+System.out.println("A-0-arg-con");
+}
+A(int i)
+{
+System.out.println("A-int-param-con");
+}
+void m1()
+{
+this(10);
+System.out.println("m1-A");
+}
+}
+class Test
+{
+public static void main(String args[])
+{
+A a=new A();
+a.m1();
+}
+}
+error-
+--------	
+A-0-arg-con
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Constructor call must be the first statement in a constructor
+
+	at prac.A.m1(Test.java:15)
+	at prac.Test.main(Test.java:24)
+	
+	
+ex4
+=====
+package prac;
+
+class A
+{
+A()
+{
+this(10);
+this(22.22f);
+System.out.println("A-0-arg-con");
+}
+A(int i)
+{
+System.out.println("A-int-param-con");
+}
+A(float f)
+{
+System.out.println("A-float-param-con");
+}
+}
+class Test
+{
+public static void main(String args[])
+{
+A a=new A();
+}
+}
+error--
+--------
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Constructor call must be the first statement in a constructor
+
+	at prac.A.<init>(Test.java:8)
+	at prac.Test.main(Test.java:24)
+	
+4.To return Current class Object:
+===================================	
+package prac;
+
+class A{
+A getRef1(){
+A a=new A();
+return a;
+}
+A getRef2(){
+return this;
+}
+}
+class Test{
+public static void main(String args[]){
+A a=new A();//[a=abc123]
+System.out.println(a);
+System.out.println();
+System.out.println(a.getRef1());//[abc123.getRef1()]  //}
+System.out.println(a.getRef1());//[abc123.getRef1()]  //}OBJ DUPLICATION
+System.out.println(a.getRef1());//[abc123.getRef1()]  //} OCCURING
+System.out.println();
+System.out.println(a.getRef2());//[abc123.getRef2()]  //}
+System.out.println(a.getRef2());//[abc123.getRef2()]  //}RECOMENDED
+System.out.println(a.getRef2());//[abc123.getRef2()]  //}
+}
+}
+	
+O/P
+-----	
+prac.A@7d6f77cc
+
+prac.A@5aaa6d82  //|
+prac.A@73a28541  //|OBJ DUPLICATION OCCURING
+prac.A@6f75e721  //|
+
+prac.A@7d6f77cc   //|
+prac.A@7d6f77cc   //|RECOMENDED
+prac.A@7d6f77cc   //|
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
