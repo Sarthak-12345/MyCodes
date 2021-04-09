@@ -1,0 +1,729 @@
+//member inner class
+//-----------------------
+package com.inner.core;
+
+class A{
+	void m1() {
+		System.out.println("M1-A-SARTHAK");
+	}
+	class B{
+		//static int i=10;-------->error
+	static final int j=20;
+	
+	void m2() {
+		System.out.println("M2-B-SARTHAK");
+	}
+	void m3() {
+		System.out.println("M3-B-SARTHAK");
+	}
+	}
+	}
+class Test
+{
+public static void main(String[] args){
+ A a = new A();
+ a.m1();
+ //a.m2();-----------> error	
+A.B ab=new A().new B();
+ ab.m2();	
+ ab.m3();
+//ab.m1();-----------> error
+}
+}
+
+case -I
+---------
+package com.inner.core;
+
+class A{
+	class B{
+		void m1() {
+			System.out.println("M1-A-SARTHAK");
+		}
+	void m2() {
+		System.out.println("M2-B-SARTHAK");
+	}
+	}
+	class C extends B{
+		void m3() {
+			System.out.println("M3-C-SARTHAK");
+		}
+		void m4() {
+			System.out.println("M4-D-SARTHAK");
+		}
+	}
+}
+
+
+class Test
+{
+public static void main(String[] args){
+ A.B ab=new A().new B();
+ ab.m1();
+ ab.m2();
+ //ab.m3();-------->error
+ A.C ac=new A().new C();
+ ac.m1();
+ ac.m2();
+ ac.m3();
+ ac.m4();
+ 
+}
+}
+
+case- II
+---------
+package com.inner.core;
+
+class A{
+	void m1() {
+		System.out.println("M1-A-SARTHAK");
+	}
+	void m2() {
+		System.out.println("M2-B-SARTHAK");
+	}
+}
+	class B{
+	class C extends A{
+		void m3() {
+			System.out.println("M3-C-SARTHAK");
+		}
+		void m4() {
+			System.out.println("M4-D-SARTHAK");
+		}
+	}
+	}
+
+
+class Test{
+public static void main(String[] args){
+ A a=new A();
+ a.m1();
+ a.m2();
+ 
+ B.C ac=new B().new C();
+ ac.m1();
+ ac.m2();
+ ac.m3();
+ ac.m4();
+ 
+}
+}
+
+case-III
+----------
+
+//immediate inner class
+package com.inner.core;
+
+class A{
+	void m1() {
+		System.out.println("M1-A-SARTHAK");
+	}
+	void m2() {
+		System.out.println("M2-B-SARTHAK");
+	}
+
+class B extends A{
+	void m3() {
+			System.out.println("M3-C-SARTHAK");
+		}
+		void m4() {
+			System.out.println("M4-D-SARTHAK");
+		}
+	}
+}
+
+
+class Test{
+public static void main(String[] args){
+ A a=new A();
+ a.m1();
+ a.m2();
+ 
+ A.B ab=new A().new B();
+ ab.m1();
+ ab.m2();
+ ab.m3();
+ ab.m4();
+ 
+}
+}
+
+abstract class inside a class
+--------------------------------
+package com.inner.core;
+
+class A{
+abstract class B{
+void m1() {
+System.out.println("M1-A-SARTHAK");
+}
+	abstract void m2();
+	abstract void m3();	
+}
+class C extends B{
+	
+void m2() {
+System.out.println("M2-B-SARTHAK");
+	
+}
+void m3() {
+System.out.println("M3-C-SARTHAK");
+		
+}
+	
+}	
+
+}
+
+class Test{
+public static void main(String[] args){
+A.C ac = new A().new C();
+ac.m1();
+ac.m2();
+ac.m3();
+System.out.println();
+A.B ab = new A().new C();
+ab.m1();
+ab.m2();
+ab.m3();
+}
+}
+
+interface inside a class
+-------------------------- 
+package com.inner.core;
+
+class A{
+interface I{
+	void m1(); 
+	void m2();
+	void m3();	
+}
+class B implements I{
+public void m1() {
+System.out.println("M1-B-SARTHAK");
+	
+}
+public void m2() {
+System.out.println("M2-B-SARTHAK");
+	
+}
+public void m3() {
+System.out.println("M3-C-SARTHAK");
+}	
+}	
+}
+class Test{
+public static void main(String[] args){
+A.I ai = new A().new B();
+ai.m1();
+ai.m2();
+ai.m3();
+System.out.println();
+A.B ab = new A().new B();
+ab.m1();
+ab.m2();
+ab.m3();
+}
+}
+class inside abstract class
+------------------------------
+package com.inner.core;
+
+abstract class A{
+class B{
+void m1() {
+System.out.println("M1-A-SARTHAK");
+	}
+void m2() {
+System.out.println("M2-B-SARTHAK");
+	}
+
+void m3() {
+System.out.println("M3-C-SARTHAK");
+		}
+}
+}
+		
+
+class C extends A{
+	//all the members of abstract class A are coming to class c
+	//now the class B is inner class to class C
+}
+
+class Test{
+public static void main(String[] args){
+A.B ab = new C().new B();
+ab.m1();
+ab.m2();
+ab.m3();
+
+}
+}
+
+
+abstract class inside abstract class
+-------------------------------------------
+abstract class A{
+abstract class B{
+void m1(){
+System.out.println("m1-B");
+}
+abstract void m2();
+
+}
+class C extends B{
+void m2(){
+System.out.println("m2-C");
+}
+}
+}
+class D extends A{
+	
+}
+public class Test {
+
+public static void main(String[] args) {
+	A.B ab=new D().new C();
+	ab.m1();
+	ab.m2();
+			
+}
+
+}
+interface inside abstract class
+-------------------------------------------
+
+package com.inner.core;
+
+abstract class A{
+interface I{
+void m1();
+void m2();
+void m3();
+}
+class B implements I{
+public void m1() {
+System.out.println("M1-A-SARTHAK");
+			}
+public	void m2() {
+System.out.println("M2-B-SARTHAK");
+			}
+public	void m3() {
+System.out.println("M3-C-SARTHAK");
+}
+}
+}
+class D extends A{
+	
+}		
+
+
+
+class Test{
+public static void main(String[] args){
+A.I ai = new D().new B();
+ai.m1();
+ai.m2();
+ai.m3();
+
+}
+}
+
+Static inner class
+--------------------
+package com.inner.core;
+
+class A{
+static class B{
+void m1() {
+System.out.println("M1-A-SARTHAK");
+}
+void m2() {
+System.out.println("M2-B-SARTHAK KUMAR");
+}
+static void m3() {
+System.out.println("M3-C-SARTHAK KUMAR MOHAPATRA");
+}
+}	
+}
+
+class Test
+{
+public static void main(String[] args){
+ A.B ab=new A.B();
+ ab.m1();
+ ab.m2();
+ ab.m3();
+ A.B.m3();
+}
+}
+
+class inside an interface 
+----------------------------
+package com.inner.core;
+
+interface I{
+	 class A{
+	void m1() {
+System.out.println("M1-A-SARTHAK");
+}
+void m2() {
+System.out.println("M2-B-SARTHAK KUMAR");
+}
+void m3() {
+System.out.println("M3-C-SARTHAK KUMAR MOHAPATRA  ");
+}
+}	
+}
+
+class Test
+{
+public static void main(String[] args){
+ I.A ia=new I.A();
+ ia.m1();
+ ia.m2();
+ ia.m3();
+
+}
+}
+
+abstract class inside an interface
+-------------------------------------
+package com.inner.core;
+
+interface I{
+abstract class A{
+void m1(){
+System.out.println("m1-A-SARTHAK");
+}
+abstract void m2();
+abstract void m3();
+}
+class B extends A{ //here the sub class is static inner class
+void m2(){
+System.out.println("m2-SARTHAK KUMAR");
+}
+void m3(){
+System.out.println("m3-SARTHAK KUMAR MOHAPATRA");
+}
+}
+}
+class Test{
+public static void main(String[] args){
+I.A ia=new I.B();
+ia.m1();
+ia.m2();
+ia.m3();
+}
+}
+
+interface inside interface
+----------------------------
+package com.inner.core;
+
+interface I1
+{
+interface I2
+{
+void m1();
+void m2();
+void m3();
+}
+class A implements I2
+{
+public void m1()
+{
+System.out.println("m1-A");
+}
+public void m2()
+{
+System.out.println("m2-A");
+}public void m3()
+{
+System.out.println("m3-A");
+}
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+I1.I2 i12=new I1.A();
+i12.m1();
+i12.m2();
+i12.m3();
+}
+}
+
+3-method local inner class
+-------------------------------
+package com.inner.core;
+
+class A
+{
+void m1()
+{
+class B
+{
+void m2()
+{
+System.out.println("m2-B SARTHAK KUMAR");
+}
+void m3()
+{
+System.out.println("m3-B SARTHAK KUMAR MOHAPATRA");
+}
+}//B
+B b=new B();
+b.m2();
+b.m3();
+}//m1()
+}//A
+class Test
+{
+public static void main(String[] args)
+{
+A a=new A();
+a.m1();
+}
+}
+Anonymous inner class
+---------------------------
+ex1-
+-----
+package com.inner.core;
+
+abstract class A
+{
+void m1()
+{
+System.out.println("m1-A");
+}
+abstract void m2();
+abstract void m3();
+}
+class Outer
+{
+A a=new A()
+{
+void m2()
+{
+System.out.println("m2-AIC");
+}
+void m3()
+{
+System.out.println("m3-AIC");
+}
+void m4()
+{
+System.out.println("m4-AIC");
+}
+};
+}
+class Test
+{
+public static void main(String[] args)
+{
+Outer o=new Outer();
+o.a.m1();
+o.a.m2();
+o.a.m3();
+//o.a.m4();--> Error
+}
+}
+
+
+ex-2
+-----
+package com.inner.core;
+
+interface I
+{
+void m1();
+void m2();
+void m3();
+}
+class Outer
+{
+I i=new I()
+{
+public void m1()
+{
+System.out.println("m1-AIC");
+}
+public void m2()
+{
+System.out.println("m2-AIC");
+}
+public void m3()
+{
+System.out.println("m3-AIC");
+}
+public void m4()
+{
+System.out.println("m4-AIC");
+}
+};
+}
+class Test
+{
+public static void main(String[] args)
+{
+Outer o=new Outer();
+o.i.m1();
+o.i.m2();
+o.i.m3();
+//o.i.m4();--> Error
+}
+}
+//IN general, we will use Anonymous Inner classes when we have requirement to pass any interface or
+//abstract class references as parameters to the methods.
+
+
+
+ex3
+-----
+package com.inner.core;
+
+interface I
+{
+void m1();
+void m2();
+void m3();
+}
+class A
+{
+void meth(I i)
+{
+i.m1();
+i.m2();
+i.m3();
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+A a=new A();
+a.meth(new I()
+{
+	public void m1()
+{
+System.out.println("m1-AIC");
+}
+public void m2()
+{
+System.out.println("m2-AIC");
+}
+public void m3()
+{
+System.out.println("m3-AIC");
+}
+public void m4()
+{
+System.out.println("m4-AIC");
+}
+});
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
