@@ -1,0 +1,300 @@
+apporach-1
+===========
+index.html
+-----------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+  <h1>Welcome To Bootstrap Web Development!</h1>  
+</body>
+</html>
+
+approach-2
+==========
+index.html
+----------
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Welcome To Bootstrap Web Development!</h1>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+provide logic in index.html and execute index.html
+===================================================
+index.html
+----------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+    <h1>
+        <p>Welcome To Bootstrap Web Application Development</p>
+    </h1>
+</body>
+</html>
+
+container class:
+-----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="container" style=" background-color: lightgreen;">
+       <h1>Welcome To Bootstrap</h1>
+    </div>
+</body>
+</html>
+
+
+container-fluid
+---------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+    <div class="container-fluid" style=" background-color: lightgreen;">
+       <h1>Welcome To Bootstrap</h1>
+    </div>
+</body>
+</html>
+
+
+text colors
+-----------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+    <h1 class="text-primary">Welcome To Bootstrap</h1>
+    <h1 class="text-success">Welcome To Bootstrap</h1>
+    <h1 class="text-info">Welcome To Bootstrap</h1>
+    <h1 class="text-warning">Welcome To Bootstrap</h1>
+    <h1 class="text-danger">Welcome To Bootstrap</h1>
+    <h1 class="text-muted">Welcome To Bootstrap</h1>
+    <h1 class="text-secondary">Welcome To Bootstrap</h1>
+    <h1 class="text-dark">Welcome To Bootstrap</h1>
+    <h1 class="text-light" style="background-color: black;">Welcome To Bootstrap</h1>
+</body>
+</html>
+
+
+background colors:
+------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+    <h1 class="bg-primary">Welcome To Bootstrap</h1>
+    <h1 class="bg-success">Welcome To Bootstrap</h1>
+    <h1 class="bg-info">Welcome To Bootstrap</h1>
+    <h1 class="bg-warning">Welcome To Bootstrap</h1>
+    <h1 class="bg-danger">Welcome To Bootstrap</h1>
+    <h1 class="bg-muted">Welcome To Bootstrap</h1>
+    <h1 class="bg-secondary">Welcome To Bootstrap</h1>
+    <h1 class="bg-dark" style="color: white;">Welcome To Bootstrap</h1>
+    <h1 class="bg-light">Welcome To Bootstrap</h1>
+</body>
+</html>
+
+heading classes
+-----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+<p class="display-1">Welcome to durgasoft</p>
+<p class="display-2">Welcome to durgasoft</p>
+<p class="display-3">Welcome to durgasoft</p>
+<p class="display-4">Welcome to durgasoft</p>
+</body>
+</html>
+
+ex-2
+--------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+<h1 class="display-1">Welcome to durgasoft</h1>
+<h1 class="display-2">Welcome to durgasoft</h1>
+<h1 class="display-3">Welcome to durgasoft</h1>
+<h1 class="display-4">Welcome to durgasoft</h1>
+</body>
+</html>
+
+Text Align classes:// wrong
+--------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist\css\bootstrap.css">
+    <script type="text/javascript" src="bootstrap-5.0.0-beta3-dist\js\bootstrap.js"></script>
+    <script type="text/javascript" src="jquery\jquery-min.js"></script>
+    <script type="text/javascript" src="popper\popper.min.js"></script>
+
+    
+</head>
+<body>
+<p class="text-left">Welcome to durgasoft</p>
+<br><br><br>
+<p class="text-center">Welcome to durgasoft</p>
+<br><br><br>
+<p class="text-right">Welcome to durgasoft</p>
+</body>
+</html>
+
+Text Styles classes:
+-----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
