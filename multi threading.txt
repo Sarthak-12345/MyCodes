@@ -1,0 +1,104 @@
+6.public boolean isAlive()
+-----------------------------
+package com.OOPS.core;
+class Test
+{
+public static void main(String[] args)
+{
+Thread t=new Thread();
+System.out.println(t.isAlive());                                
+t.start();
+System.out.println(t.isAlive());                     
+System.out.println(t.isAlive());
+System.out.println(t.isAlive());                       
+System.out.println(t.isAlive());                      
+System.out.println(t.isAlive());                         
+System.out.println(t.isAlive());                       
+System.out.println(t.isAlive());                   
+System.out.println(t.isAlive());                 
+System.out.println(t.isAlive());                      
+System.out.println(t.isAlive());                        
+}
+}
+o/p-false
+    true
+    true          
+    true
+    true
+    true
+    true
+    true
+    true
+    false     //it is not constant.whenever we will get the value as false 
+    false       from that point we will get all the values as false                                                                   
+
+
+
+7.public static thread currentThread()
+---------------------------------------
+package com.OOPS.core;
+class MyThread extends Thread
+{
+public void run()
+{
+for(int i=0;i<10;i++)
+{
+System.out.println(Thread.currentThread().getName());
+}
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+MyThread mt1=new MyThread();
+MyThread mt2=new MyThread();
+MyThread mt3=new MyThread();
+mt1.setName("Disha");
+mt2.setName("Alia");
+mt3.setName("Janhvi");
+mt1.start();
+mt2.start();
+mt3.start();
+}
+}
+o/p-
+Disha
+Disha
+Disha
+Disha  //we cant specify here that which thread will execute when.
+Disha
+Disha 
+Disha  
+Disha
+Disha
+Disha
+Janhvi
+Janhvi
+Alia
+Alia
+Alia
+Janhvi
+Janhvi
+Alia
+Alia
+Alia
+Alia
+Alia
+Alia
+Alia
+Janhvi
+Janhvi
+Janhvi
+Janhvi
+Janhvi
+Janhvi
+
+
+
+
+
+
+
+
+
