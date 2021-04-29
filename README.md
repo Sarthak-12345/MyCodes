@@ -1,2 +1,2 @@
-# MyCodes
+# MyJAVACodes
 all codes
