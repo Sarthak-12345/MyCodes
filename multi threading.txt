@@ -1,3 +1,288 @@
+1)extending thread class
+ =======================
+package prac;
+
+class MyThread extends Thread
+{
+public void run()
+{
+for(int i=0;i<10;i++)
+{
+System.out.println("User Thread :"+i);
+}
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+MyThread mt=new MyThread();
+mt.start();
+for(int i=0;i<10;i++)
+{
+System.out.println("Main Thread :"+i);
+}
+}
+}
+
+2)Implementing Runnable interface:
+===================================
+package prac;
+
+
+class MyThread implements Runnable
+{
+public void run()
+{
+for(int i=0;i<10;i++)
+{
+System.out.println("User Thread :"+i);
+}
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+	//PART - 1
+//---------------------
+/*MyThread mt =new MyThread();
+mt.start();
+for(int i=0;i<10;i++){
+System.out.println("Main Thread :"+i);
+}	
+	ERROR
+==================
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The method start() is undefined for the type MyThread
+
+	at prac.Test.main(Test.java:20)*/
+	
+	
+	//PART - 2
+//---------------------	
+	
+	/*MyThread mt =new MyThread();
+	mt.run();
+	for(int i=0;i<10;i++){
+		System.out.println("Main Thread :"+i);
+		}
+	
+	Status:-No Compilation Error, but, only Main thread access
+	MyThread class run() method like a
+	normal java method, no multi-threading environment.*/
+	
+	//PART - 3
+//---------------------	
+/*	MyThread mt =new MyThread();
+	Thread t = new Thread();
+	t.start();
+	for(int i=0;i<10;i++){
+		System.out.println("Main Thread :"+i);
+		}
+	
+//status-	it can access the thread class run method not MyThread class run() method 
+	*/
+	//PART - 4
+	//---------------------	
+MyThread mt=new MyThread();
+Thread t = new Thread(mt);
+t.start();
+for(int i=0;i<10;i++){
+System.out.println("Main Thread :"+i);
+}
+/*status-start() method creates new Thread & it will by pass the new thread
+to MyThread class run() method*/
+}
+}
+
+Thread class Library
+====================
+1)Constructor:
+-----------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		Thread t = new Thread();
+		System.out.println(t);//Thread[Thread-0,5,main]
+		
+	}
+	
+}
+
+2.public Thread(String name)
+----------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		Thread t = new Thread("Core java");
+		System.out.println(t);//Thread[Core java,5,main]
+		
+	}
+	
+}
+
+3.public Thread(Runnable r)
+---------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		Runnable r = new Thread();//Thread-0
+		Thread t = new Thread(r);//Thread-1
+		System.out.println(r);//Thread[Thread-0,5,main]
+		System.out.println(t);//Thread[Thread-1,5,main]
+	}
+	
+}
+ex
+---
+package prac;
+
+
+class WelcomeThread implements Runnable{
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println("user thread(wecome Thread) :"+i);
+		}
+		
+	}
+}
+public class Test{
+	public static void main(String[] args){
+		Runnable r = new WelcomeThread();
+		Thread t = new Thread(r);
+		t.start();
+		for(int i=0;i<10;i++) {
+			System.out.println("Main Thread :"+i);
+		}
+	}
+	
+}
+
+4.public Thread(Runnable r, String name)
+-------------------------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		Runnable r = new Thread();
+		Thread t = new Thread(r,"Core Java");
+		System.out.println(t);//Thread[Core Java,5,main]
+}	
+}
+
+5.public Thread(ThreadGroup tg, Runnable r)
+--------------------------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		ThreadGroup tg=new ThreadGroup("Java");
+		Runnable r=new Thread();
+		Thread t=new Thread(tg,r);
+		System.out.println(t);//Thread[Thread-1,5,Java]
+}	
+}
+
+6.public Thread(ThreadGroup tg, String name)
+---------------------------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		ThreadGroup tg=new ThreadGroup("Java");
+		Thread t=new Thread(tg, "Core Java");
+		System.out.println(t);//Thread[Core Java,5,Java]
+
+}	
+}
+
+7.public Thread(ThreadGroup tg, Runnable r, String name)
+---------------------------------------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		ThreadGroup tg=new ThreadGroup("Java");
+		Runnable r=new Thread();
+		Thread t=new Thread(tg, r, "Core Java");
+		System.out.println(t);//Thread[Core Java,5,Java]
+
+}	
+}
+
+
+
+METHODS IN THREAD
+=================
+1.public void setName(String name)
+2.public String getName()
+----------------------------------------
+ex
+----
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		Thread t=new Thread();
+		System.out.println(t.getName());
+		t.setName("Core Java");
+		System.out.println(t.getName());//Thread-0
+		                                 //Core Java
+}	
+}
+
+3.public void setPriority(int priority)
+4.public int getPriority()
+-------------------------------------------
+
+public static final int MIN_PRIORITY=1;
+public static final int NORM_PRIORITY=5;
+public static final int MAX_PRIORITY=10;
+ex
+----
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		
+		Thread t=new Thread();
+		System.out.println(t.getPriority());
+		t.setPriority(7);
+		System.out.println(t.getPriority());
+		t.setPriority(Thread.MAX_PRIORITY-2);
+		System.out.println(t.getPriority());
+		//t.setPriority(15);-->IllegalArgumentException
+}
+}
+
+5.public static int activeCount()
+-----------------------------------
+package prac;
+
+
+public class Test{
+	public static void main(String[] args){
+		
+		Thread t=new Thread();
+		t.start();
+		System.out.println(Thread.activeCount());//2
+}
+}
+
+
 6.public boolean isAlive()
 -----------------------------
 package com.OOPS.core;
@@ -93,6 +378,229 @@ Janhvi
 Janhvi
 Janhvi
 Janhvi
+
+8.public static void sleep(long time)throws InterruptedException
+------------------------------------------------------------------
+package prac;
+
+class WelcomeThread extends Thread{
+	public void run() {
+		for(int i=0;i<10;i++) {
+		try {
+			Thread.sleep(500);
+			System.out.println("Welcome Thread");
+}	.
+                       catch(Exception e) {
+			e.printStackTrace();
+}
+}
+}
+} 
+public class Test{
+	public static void main(String[] args){
+		WelcomeThread wt = new WelcomeThread();
+		wt.start();
+}
+}
+
+9.public void join()throws InterruptedException
+-------------------------------------------------
+package prac;
+
+class WelcomeThread extends Thread{
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println("Welcome Thread :"+i);
+		}
+	}
+} 
+public class Test{
+	public static void main(String[] args) throws Exception{
+		WelcomeThread wt = new WelcomeThread();
+		wt.start();
+		wt.join();
+		for(int i=0;i<10;i++) {
+			System.out.println("Main Thread :"+i);
+		}
+}
+}
+
+
+
+Daemon Thread
+==============
+ex 1
+------
+package prac;
+
+class GarbageCollector extends Thread{
+	public void run() {
+		while(true) {
+			System.out.println("GarbageCollector...");
+		}
+	}
+} 
+public class Test{
+	public static void main(String[] args) throws Exception{
+		GarbageCollector gc =new GarbageCollector();
+		gc.start();
+		for(int i=0;i<10;i++) {
+			System.out.println("Main Thread :"+i);
+		}
+}
+}
+
+
+
+o/p-
+Main Thread :0
+Main Thread :1
+Main Thread :2
+Main Thread :3
+Main Thread :4
+Main Thread :5
+Main Thread :6
+Main Thread :7
+Main Thread :8
+Main Thread :9
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+GarbageCollector...
+..................
+..................
+infinite
+
+ex2
+-----
+package prac;
+
+class GarbageCollector extends Thread{
+	public void run() {
+		while(true) {
+			//System.out.println("GarbageCollector...");
+		}
+	}
+} 
+public class Test{
+	public static void main(String[] args) throws Exception{
+		GarbageCollector gc =new GarbageCollector();
+		gc.setDaemon(true);
+		gc.start();
+		for(int i=0;i<10;i++) {
+			//System.out.println("Main Thread :"+i);
+		}
+		System.out.println(gc.isDaemon());//true
+}
+}
+
+
+concurrent Threads
+====================
+1)use of local variable over instance variables
+-----------------------------------------------
+instance variable ex
+---------------------
+
+package prac;
+
+class A {
+	int i =10;
+	void increment() {
+		i=i+10;
+		System.out.println(i);//o/p--20 30 or 30 30 not constant
+	}
+	
+	}
+class Thread1 extends Thread{
+	A a;
+	Thread1(A a){
+		this.a=a;
+		
+	}
+	public void run() {
+		a.increment();
+	}
+}
+
+
+class Thread2 extends Thread{
+	A a;
+	Thread2(A a){
+		this.a=a;
+	}
+	public void run() {
+		a.increment();
+	}
+}
+
+public class Test{
+	public static void main(String[] args) { 
+	A a = new A();
+	Thread1 t1 = new Thread1(a);
+	Thread2 t2 = new Thread2(a);
+	t1.start();
+	t2.start();
+	}
+}
+
+local variable ex
+---------------------
+package prac;
+
+class A {
+	
+	void increment() {
+		int i =10;
+		i=i+10;
+		System.out.println(i);//o/p--20 20 (constant o/p)
+	}
+	
+	}
+class Thread1 extends Thread{
+	A a;
+	Thread1(A a){
+		this.a=a;
+		
+	}
+	public void run() {
+		a.increment();
+	}
+}
+
+
+class Thread2 extends Thread{
+	A a;
+	Thread2(A a){
+		this.a=a;
+	}
+	public void run() {
+		a.increment();
+	}
+}
+
+public class Test{
+	public static void main(String[] args) { 
+	A a = new A();
+	Thread1 t1 = new Thread1(a);
+	Thread2 t2 = new Thread2(a);
+	t1.start();
+	t2.start();
+	}
+}
+
+
+
+
+
+
+
+
 
 
 
