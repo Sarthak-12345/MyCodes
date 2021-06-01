@@ -1,0 +1,133 @@
+Class.forName & newInstance()
+===============================
+ex-1
+----
+class A{
+    static {
+        System.out.println("Class Loading");
+    }
+    A(){
+        System.out.println("Object Creating");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+      Class c = Class.forName("A");//it will load class bytecode to the memory without creating object
+      Object obj = c.newInstance();// we can use  newInstance method if we explicitly want to create
+                                   // object after loading the bytecodes to the memory
+
+        }
+    }
+
+o/p-
+----
+Class Loading
+Object Creating
+
+Process finished with exit code 0
+
+Factory Method
+==============
+ex-1
+-----
+class  A{
+    private  A(){
+        System.out.println("A-con");
+    }
+    void m1(){
+        System.out.println("m1-A");
+    }
+    static A getRef(){// factory method
+        A a = new A();
+        return a;
+    }
+}
+public class Test {
+    public static void main(String[] args)  {
+        A a = A.getRef();// it can be used to return the same class object where we have declared that method
+        a.m1();
+        }
+    }
+o/p-
+----
+A-con
+m1-A
+
+Process finished with exit code 0
+
+Static Factory Method:
+---------------------
+EX:
+Class c=Class.forName(--);
+NumberFormat nf=NumberFormat.getInstance(-);
+DateFormat df=DateForamt.getInstance(--);
+ResourceBundle rb=ResourceBundle.getBundle(--);
+
+Instance Factory Method:
+------------------------
+String str=new String("DurgaSoftware Solutions");
+String str1=str.concat(" Hyderabad");
+String str2=str.trim();
+String str3=str.toUpperCase();
+String str4=str.substring(5,14); 
+
+singleton class
+----------------
+class  A{
+  static  A a = null;
+  static {
+      a = new A();
+  }
+  private A(){
+
+  }
+  static A getRef(){
+      return a;
+  }
+}
+public class Test {
+    public static void main(String[] args)  {
+        System.out.println(A.getRef());//A@1b6d3586      same object reference value
+        System.out.println(A.getRef()); //A@1b6d3586
+        System.out.println(A.getRef());//A@1b6d3586
+        }
+    }
+
+o/p-
+----
+A@1b6d3586
+A@1b6d3586
+A@1b6d3586
+
+alternative singleton class
+---------------------------
+class  A{
+  static  A a = new A();
+  private  A(){
+
+  }
+  static A getRef(){
+      return a;
+  }
+}
+public class Test {
+    public static void main(String[] args)  {
+        System.out.println(A.getRef());     
+        System.out.println(A.getRef()); 
+        System.out.println(A.getRef());
+        }
+    }
+
+o/p-
+----
+A@1b6d3586
+A@1b6d3586
+A@1b6d3586
+
+Process finished with exit code 0
+
+
+
+
+
