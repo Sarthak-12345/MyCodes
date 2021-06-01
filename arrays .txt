@@ -1,0 +1,487 @@
+declare & initialize
+declare then initialize
+========================
+ex1
+---
+package prac;
+
+class Test {
+	  public static void main(String[] args) {
+ //int[] a= {1,2,3,4,5};
+ int[] a =new int [5];
+ a[0]=10;
+ a[1]=20;
+ a[2]=30;
+ a[3]=40;
+ a[4]=50;
+	System.out.println(a);  
+	System.out.println(a[0]);
+	System.out.println(a[1]);
+	System.out.println(a[2]);
+	System.out.println(a[3]);
+	System.out.println(a[4]);
+	System.out.println(a[5]);
+}
+}
+o/p:-
+----
+[I@2d363fb3
+10
+20
+30
+40
+50
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+	at prac.Test.main(Test.java:18)
+
+length of the array
+====================
+ex2
+----
+package prac;
+
+class Test {
+	  public static void main(String[] args) {
+int[] a= {1,2,3,4,5};
+// int[] a =new int [5];
+// a[0]=10;
+// a[1]=20;
+// a[2]=30;
+// a[3]=40;
+// a[4]=50;
+	System.out.println(a);  
+	System.out.println(a[0]);
+	System.out.println(a[1]);
+	System.out.println(a[2]);
+	System.out.println(a[3]);
+	System.out.println(a[4]);
+	System.out.println("Length of the array : "+a.length);
+	
+	}
+}
+
+o/p-
+----
+[I@2d363fb3
+1
+2
+3
+4
+5
+Length of the array : 5
+
+for loop and for each loop
+===========================
+ex3
+---
+package prac;
+
+class Test {
+	  public static void main(String[] args){
+
+ int[] a =new int [5];
+ a[0]=10;
+ a[1]=20;
+ a[2]=30;
+ a[3]=40;
+ a[4]=50;
+	System.out.println(a);  
+	System.out.println(a[0]);
+	System.out.println(a[1]);
+	System.out.println(a[2]);
+	System.out.println(a[3]);
+	System.out.println(a[4]);
+	System.out.println();
+	System.out.println("Length of the array : "+a.length);
+	System.out.println();
+	int[] b= {1,2,3,4,5};
+	for (int i = 0; i < b.length; i++) {//it is used when we know the the length of the arrays.
+		System.out.println(b[i]);	
+	}
+	System.out.println();
+	
+	for (int elements : a) {//it is used when we dont know the length of the arrays.
+		System.out.println(elements);
+	}
+	}
+}
+
+multi-dimentional arrays
+==========================
+ex 4
+-----
+package prac;
+
+class Test {
+	  public static void main(String[] args){
+
+//Declaration and  initialization 		  
+int[][] a= {{1,2,3},{5,6,7},{8,9,10},{11,12,13}};
+System.out.println(a[0][0]);
+System.out.println(a[0][1]);
+System.out.println(a[0][2]);
+System.out.println("Length of the first place array : "+a[0].length);
+
+System.out.println(a[1][0]);
+System.out.println(a[1][1]);
+System.out.println(a[1][2]);
+System.out.println("Length of the second place array : "+a[1].length);
+
+System.out.println(a[2][0]);
+System.out.println(a[2][1]);
+System.out.println(a[2][2]);
+System.out.println("Length of the third place array : "+a[2].length);
+
+System.out.println(a[3][0]);
+System.out.println(a[3][1]);
+System.out.println(a[3][2]);
+System.out.println("Length of the fourth place array : "+a[3].length);
+
+
+//Declaration then initialization 
+
+int[][] b = new int [3][2];
+
+b[0][0]=10;
+b[0][1]=10;
+
+
+b[1][0]=10;
+b[1][1]=10;
+
+
+b[2][0]=10;
+b[2][1]=10;
+
+System.out.println(a[0][0]);
+System.out.println(a[0][1]);
+System.out.println("Length of the 1st place array : "+b[0].length);
+
+System.out.println(a[1][0]);
+System.out.println(a[1][1]);
+System.out.println("Length of the 1st place array : "+b[1].length);
+
+System.out.println(a[2][0]);
+System.out.println(a[2][1]);
+System.out.println("Length of the 1st place array : "+b[2].length);
+
+
+	}
+}
+
+o/p-
+----
+1
+2
+3
+Length of the first place array : 3
+5
+6
+7
+Length of the second place array : 3
+8
+9
+10
+Length of the third place array : 3
+11
+12
+13
+Length of the fourth place array : 3
+1
+2
+Length of the 1st place array : 2
+5
+6
+Length of the 1st place array : 2
+8
+9
+Length of the 1st place array : 2
+
+
+ex-5
+-----
+
+package prac;
+
+class Test {
+	  public static void main(String[] args){
+
+//Declaration and  initialization 		  
+int[][] a= {{1,2,3},{5,6,7},{8,9,10},{11,12,13}};
+System.out.println(a[0][0]);
+System.out.println(a[0][1]);
+System.out.println(a[0][2]);
+System.out.println("Length of the first place array : "+a[0].length);
+
+System.out.println(a[1][0]);
+System.out.println(a[1][1]);
+System.out.println(a[1][2]);
+System.out.println("Length of the second place array : "+a[1].length);
+
+System.out.println(a[2][0]);
+System.out.println(a[2][1]);
+System.out.println(a[2][2]);
+System.out.println("Length of the third place array : "+a[2].length);
+
+System.out.println(a[3][0]);
+System.out.println(a[3][1]);
+System.out.println(a[3][2]);
+System.out.println("Length of the fourth place array : "+a[3].length);
+
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println();
+
+
+
+
+System.out.println(a);//2-d referance value 
+System.out.println(a.length);
+System.out.println(a[0]);//inside the array referance value of the 0th place array
+System.out.println(a[0][2]);
+//System.out.println(a[1][3]); -------->arrayIndexOutOfBoundException
+System.out.println(a[a[1].length-1][a[2].length-1]);
+
+System.out.println();
+System.out.println();
+
+for(int row =0;row<a.length;row++) {
+for(int col=0;col<a[row].length;col++)	{
+	System.out.print(a[row][col]+ "\t");
+		
+}
+System.out.println();
+	} 
+System.out.println();
+System.out.println();
+
+
+for(int [] row :a) {
+	for(int  elements : row) {
+		System.out.print(elements+"\t");
+		
+	}
+	System.out.println();
+}
+
+
+
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println();
+
+
+
+//Declaration then initialization 
+
+int[][] b = new int [3][2];
+
+b[0][0]=10;
+b[0][1]=10;
+
+
+b[1][0]=10;
+b[1][1]=10;
+
+
+b[2][0]=10;
+b[2][1]=10;
+
+System.out.println(a[0][0]);
+System.out.println(a[0][1]);
+System.out.println("Length of the 1st place array : "+b[0].length);
+
+System.out.println(a[1][0]);
+System.out.println(a[1][1]);
+System.out.println("Length of the 1st place array : "+b[1].length);
+
+System.out.println(a[2][0]);
+System.out.println(a[2][1]);
+System.out.println("Length of the 1st place array : "+b[2].length);
+
+
+	}
+}
+
+
+o/p-
+----
+1
+2
+3
+Length of the first place array : 3
+5
+6
+7
+Length of the second place array : 3
+8
+9
+10
+Length of the third place array : 3
+11
+12
+13
+Length of the fourth place array : 3
+
+
+[[I@2d363fb3
+4
+[I@7d6f77cc
+3
+10
+
+
+1	2	3	
+5	6	7	
+8	9	10	
+11	12	13	
+
+
+1	2	3	
+5	6	7	
+8	9	10	
+11	12	13	
+
+
+1
+2
+Length of the 1st place array : 2
+5
+6
+Length of the 1st place array : 2
+8
+9
+Length of the 1st place array : 2
+
+
+
+
+
+ex-6
+------
+package prac;
+
+class Courses{
+	
+	String cid;
+	String cname;
+	int    ccost;
+	public Courses(String cid,String cname,int ccost){
+	this.cid= cid;
+	this.cname=cname;
+	this.ccost=ccost;
+		
+	}
+}
+class Student{
+	
+	String sid;
+	String sname;
+	String saddr;
+	Courses[] courses;
+	public Student(String sid,String sname,String saddr,Courses[] courses){
+	this.sid= sid;
+	this.sname=sname;
+	this.saddr=saddr;
+	this.courses=courses;
+	}
+public void getStudentDetails(){
+System.out.println("Student Details : ");
+System.out.println("------------------------------");
+System.out.println("Student Id :"+sid);
+System.out.println("Student Name : "+sname);
+System.out.println("Student Address : "+saddr);
+System.out.println();
+System.out.println();
+System.out.println("CID\tCNAME\tCCOST");
+System.out.println("-------------------------------");
+for (Courses courses : courses) {
+	System.out.print(courses.cid+"\t");
+	System.out.print(courses.cname+"\t");
+	System.out.print(courses.ccost+"\n");
+}
+			
+}
+	
+}
+
+public class Test {
+	  public static void main(String[] args){
+
+     Courses course1= new Courses("C-111","C",1000);
+     Courses course2= new Courses("C-222","C++",2000);
+     Courses course3= new Courses("C-333","Python",5000);
+     Courses course4= new Courses("C-111","Java",10000);
+     Courses[] courses = {course1,course2,course3,course4};
+     Student student = new Student("S-111","SARTHAK","KERUNA",courses);
+     student.getStudentDetails();
+     
+	}
+}
+
+o/p-
+----
+Student Details : 
+------------------------------
+Student Id :S-111
+Student Name : SARTHAK
+Student Address : KERUNA
+
+
+CID	CNAME	CCOST
+-------------------------------
+C-111	C	1000
+C-222	C++	2000
+C-333	Python	5000
+C-111	Java	10000
+
+anonymous arrays
+===================
+ex-7
+----
+package prac;
+
+class Bank{
+	public  void displayCustomerNames(String[] CustomerNames) {
+		for (String CustomerName : CustomerNames) {
+		System.out.println(CustomerName);	
+		}
+	}
+}
+
+public class Test {
+	  public static void main(String[] args){
+
+    Bank bank = new Bank();
+    bank.displayCustomerNames(new String[] {"AAA","BBB","CCC","DDD","EEE"});
+     
+	}
+}
+
+o/p-
+----
+AAA
+BBB
+CCC
+DDD
+EEE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
